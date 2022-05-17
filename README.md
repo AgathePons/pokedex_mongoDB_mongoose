@@ -29,20 +29,36 @@ C'est un système de gestion de base de donnée NoSQL. Il en existe d'autres qui
 
 ### Commandes 
 
-Ouvrir le shell de Mongo : `mongo`
-Fermer le shell de Mongo : `exit`
-Créer ou se déplacer sur une BDD : `use <nom bdd>`
-Afficher la bdd actuelle : `db`
-Afficher les bases de données disponibles : `show dbs`
-Afficher les collections de la base de donnée actuelle : `show collections`
-Renommer une collection : `db.nomCollection.renameCollection('nouveauNom')`
-Supprimer une collection : `db.nomCollection.drop()`
-Insérer une nouvelle collection : `db.createCollection('nomCollection)`
-Afficher les documents d'une collection : `db.nomCollection.find({filtre}, {projection})`
-Afficher un document d'une collection : `db.nomCollection.findOne({"propriete":"valeur"})`
-Insérer un nouveau document : `db.nomCollection.insertOne({"propriete":"valeur", ...})`
-Insérer plusieurs documents : `db.nomCollection.insertMany([{document1}, {document2}, ...])`
-Supprimer un document : `db.nomCollection.deleteOne({filtre})`
-Supprimer plusieurs documents : `db.nomCollection.deleteMany({filtre})`
-Mettre à jour un document : `db.nomCollection.updateOne({filtre}, {$set:{"propriete":"valeur", ...}})`
+Ouvrir le shell de Mongo : `mongo`  
+Fermer le shell de Mongo : `exit`  
+Créer ou se déplacer sur une BDD : `use <nom bdd>`  
+Afficher la bdd actuelle : `db`  
+Afficher les bases de données disponibles : `show dbs`  
+Afficher les collections de la base de donnée actuelle : `show collections`  
+Renommer une collection : `db.nomCollection.renameCollection('nouveauNom')`  
+Supprimer une collection : `db.nomCollection.drop()`  
+Insérer une nouvelle collection : `db.createCollection('nomCollection)`  
+Afficher les documents d'une collection : `db.nomCollection.find({filtre}, {projection})`  
+Afficher un document d'une collection : `db.nomCollection.findOne({"propriete":"valeur"})`  
+Insérer un nouveau document : `db.nomCollection.insertOne({"propriete":"valeur", ...})`  
+Insérer plusieurs documents : `db.nomCollection.insertMany([{document1}, {document2}, ...])`  
+Supprimer un document : `db.nomCollection.deleteOne({filtre})`  
+Supprimer plusieurs documents : `db.nomCollection.deleteMany({filtre})`  
+Mettre à jour un document : `db.nomCollection.updateOne({filtre}, {$set:{"propriete":"valeur", ...}})`  
 Mettre à jour plusieurs documents : `db.nomCollection.updateMany({filtre}, {$set:{"propriete":"valeur", ...}})`
+
+## Déployer une bdd mongodb via un fichier .bson
+
+dans le dossier du projet : `mongorestore -d nomDeLaBaseACreer chemin/`  
+
+## Autres commandes
+
+pour afficher des résultats de façon lisible : `db.mabase.find().pretty()`  
+pour ordonner les résultats `1` pour ascendant, `-1` pour descendant : `db.pokedex.find().sort({"id":-1})`  
+pour compter : `db.pokedex.find().count()`  
+pour filtrer **et** compter : `db.pokedex.find({"type":"Water"}).count()`  
+avoir les trois dernier de type Normal : `db.pokedex.find({"type":"Normal"}).sort({"id":-1}).limit(3)`
+
+## infos
+
+On peut utiliser un ODM (Object Document Model) pour gérer mongodb (comme ORM mais pour du noSQL)
