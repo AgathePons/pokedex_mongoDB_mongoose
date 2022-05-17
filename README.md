@@ -1,15 +1,5 @@
 # NoSQL
 
-Ca vous évoque quoi ?
-
-- pas de sql
-- lent et lourd
-- sql sans requetes
-- enormes bdd : big data
-- poupée matryoshka de la db
-  
-en vrai :
-
 - pas de sql
 - pas relationnel au sens strict : on peut quand même créé des associations, mais on ne peut pas créer de tables
 - c'est très rapide uniquement en lecture / écriture de masse, pas en édition
